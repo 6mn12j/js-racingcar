@@ -8,7 +8,7 @@ const carPlayerTemplate = (name) => {
 	<div class="car-player">${name}</div>
   </div>`;
 };
-export const addCar = () => {
+export const renderCarPlayer = () => {
   names.forEach((name) => {
     raceProcessDiv.insertAdjacentHTML('beforeend', carPlayerTemplate(name));
   });
