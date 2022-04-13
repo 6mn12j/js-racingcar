@@ -1,4 +1,5 @@
 import { renderCarPlayer, startGame } from './raceProcess.js';
+import { renderResult, retryGame } from './raceResult.js';
 
 export const raceCountSection = document.querySelector('.section-count');
 export const raceCountFieldset = document.querySelector('.fieldset-count');
@@ -16,11 +17,14 @@ const handleRaceCountInput = () => {
   return countNumber;
 };
 
-export const submitRaceCount = (event) => {
+export const submitRaceCount = async (event) => {
   if (event.code === 'Enter' || event.type === 'click') {
     event.preventDefault();
     count = handleRaceCountInput();
     renderCarPlayer();
-    startGame();
+    const winner = await startGame();
+    renderResult(winner);
+    const retryButton = document.querySelector('#retry-button');
+    retryButton && retryButton.addEventListener('click', retryGame);
   }
 };

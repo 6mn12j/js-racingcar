@@ -53,6 +53,28 @@ const processGame = async (playerNode) => {
   랜덤 확률로 갈 수 있다.
   처음에 스피너 -> setTimeout 한다음에 스피너 삭제
 */
+
+const getWinner = (carPlayers) => {
+  let max = 0;
+  const win = [];
+  const players = [];
+  for (let carPlayer in carPlayers) {
+    //console.dir(carPlayers[carPlayer]);
+    players.push({
+      player: carPlayers[carPlayer].innerText.split('\n')[0],
+      count: carPlayers[carPlayer].childElementCount,
+    });
+    max =
+      carPlayers[carPlayer].childElementCount > max
+        ? carPlayers[carPlayer].childElementCount
+        : max;
+  }
+  for (let player in players) {
+    if (players[player].count === max) win.push(players[player].player);
+  }
+  return win;
+};
+
 export const startGame = async () => {
   const nodeList = raceProcessDiv.childNodes;
   const carPlayers = Array.prototype.slice
@@ -64,4 +86,5 @@ export const startGame = async () => {
     });
     await wait(1000);
   }
+  return getWinner(carPlayers);
 };

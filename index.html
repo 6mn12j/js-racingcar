@@ -23,40 +23,37 @@
                   id="input-car-name"
                   placeholder="자동차 이름"
                 />
-                <button type="button"
-                id="btn-car-name"
-                class="btn btn-cyan">
+                <button type="button" id="btn-car-name" class="btn btn-cyan">
                   확인
                 </button>
               </div>
             </section>
           </fieldset>
-        <section class="section-count hidden">
-          <fieldset class="fieldset-count">
-            <p>시도할 횟수를 입력해주세요.</p>
-            <div class="d-flex">
-              <input type="number" id="input-race-count" class="w-100 mr-2 " placeholder="시도 횟수" />
-              <button type="button" id="btn-race-count" class="btn btn-cyan">확인</button>
-            </div>
-          </fieldset>
-        </section>
+          <section class="section-count hidden">
+            <fieldset class="fieldset-count">
+              <p>시도할 횟수를 입력해주세요.</p>
+              <div class="d-flex">
+                <input
+                  type="number"
+                  id="input-race-count"
+                  class="w-100 mr-2"
+                  placeholder="시도 횟수"
+                />
+                <button type="button" id="btn-race-count" class="btn btn-cyan">
+                  확인
+                </button>
+              </div>
+            </fieldset>
+          </section>
         </form>
       </section>
 
       <section class="section-race-process d-flex justify-center mt-5">
-         <div class="div-race-process mt-4 d-flex">
-        </div>
+        <div class="div-race-process mt-4 d-flex"></div>
       </section>
-       <!--
-      <section class="d-flex justify-center mt-5">
-        <div>
-          <h2>🏆 최종 우승자: EAST, WEST 🏆</h2>
-          <div class="d-flex justify-center">
-            <button type="button" class="btn btn-cyan">다시 시작하기</button>
-          </div>
-        </div>
-      </section>
-    </div> -->
+
+      <section class="section-race-result d-flex justify-center mt-5"></section>
+    </div>
     <script type="module" src="./src/init.js"></script>
   </body>
 </html>
