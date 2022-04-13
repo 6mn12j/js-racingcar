@@ -23,3 +23,7 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+Cypress.Commands.add('setCorrectCarName', () => {
+  cy.get('#input-car-name').type(`EAST, WEST, SOUTH, NORTH{enter}`);
+  cy.get('.section-count').should('not.have.value', 'hidden');
+});

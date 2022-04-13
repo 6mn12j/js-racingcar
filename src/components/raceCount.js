@@ -14,6 +14,7 @@ const handleRaceCountInput = () => {
   if (countNumber) raceCountFieldset.setAttribute('disabled', 'disalbed');
   renderCarPlayer();
 };
+
 export const submitRaceCount = (event) => {
   if (event.code === 'Enter' || event.type === 'click') {
     event.preventDefault();
