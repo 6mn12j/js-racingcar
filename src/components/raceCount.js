@@ -1,9 +1,10 @@
-import { renderCarPlayer } from './raceProcess.js';
+import { renderCarPlayer, startGame } from './raceProcess.js';
 
 export const raceCountSection = document.querySelector('.section-count');
 export const raceCountFieldset = document.querySelector('.fieldset-count');
 export const raceCountInput = document.getElementById('input-race-count');
 export const raceCountButton = document.getElementById('btn-race-count');
+export let count = 0;
 
 const handleRaceCountInput = () => {
   const countNumber = parseInt(raceCountInput.value, 10);
@@ -12,12 +13,14 @@ const handleRaceCountInput = () => {
     return;
   }
   if (countNumber) raceCountFieldset.setAttribute('disabled', 'disalbed');
-  renderCarPlayer();
+  return countNumber;
 };
 
 export const submitRaceCount = (event) => {
   if (event.code === 'Enter' || event.type === 'click') {
     event.preventDefault();
-    handleRaceCountInput();
+    count = handleRaceCountInput();
+    renderCarPlayer();
+    startGame();
   }
 };
