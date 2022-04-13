@@ -23,7 +23,8 @@ export const submitRaceCount = async (event) => {
     count = handleRaceCountInput();
     renderCarPlayer();
     const winner = await startGame();
-    renderResult(winner);
+    await renderResult(winner);
+    window.alert('축하합니다');
     const retryButton = document.querySelector('#retry-button');
     retryButton && retryButton.addEventListener('click', retryGame);
   }

@@ -5,7 +5,7 @@ import {
   raceCountInput,
   raceCountSection,
 } from './raceCount.js';
-import { raceProcessDiv } from './raceProcess.js';
+import { raceProcessDiv, wait } from './raceProcess.js';
 
 const raceResultSection = document.querySelector('.section-race-result');
 
@@ -30,6 +30,7 @@ const raceResultTemplate = (winner) => {
 	  </div>`;
 };
 
-export const renderResult = (winner) => {
+export const renderResult = async (winner) => {
   raceResultSection.insertAdjacentHTML('beforeend', raceResultTemplate(winner));
+  await wait(500);
 };

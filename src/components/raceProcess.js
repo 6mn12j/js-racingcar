@@ -39,7 +39,7 @@ const isSuccess = () => {
   if (Math.random() > 0.5) return 1;
   else return 0;
 };
-const wait = (timeToDelay) =>
+export const wait = (timeToDelay) =>
   new Promise((resolve) => setTimeout(resolve, timeToDelay));
 
 const processGame = async (playerNode) => {
@@ -77,6 +77,7 @@ const getWinner = (carPlayers) => {
 
 export const startGame = async () => {
   const nodeList = raceProcessDiv.childNodes;
+  console.log(nodeList);
   const carPlayers = Array.prototype.slice
     .call(nodeList)
     .filter((node) => node.className && node.className.includes('car'));
